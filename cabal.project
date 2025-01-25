@@ -1,0 +1,6 @@
+packages:
+  va-bench.cabal
+  -- /path/to/local/vector-algorithms/vector-algorithms.cabal
+
+constraints: vector-algorithms +llvm
+optimization: 2
