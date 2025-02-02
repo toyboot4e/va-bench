@@ -28,3 +28,8 @@ build:
 [private]
 alias b := build
 
+# dumps Core outputs in `dist-newstyle/`
+dump:
+    cabal build --enable-benchmarks --ghc-options '-ddump-to-file -ddump-prep' nub
+    cabal build --enable-benchmarks --ghc-options '-ddump-to-file -ddump-prep' inline-sort
+    cabal build --enable-benchmarks --ghc-options '-ddump-to-file -ddump-prep' sort-vs-sort-by
