@@ -1,7 +1,6 @@
 module Main where
 
 import Criterion.Main
-import Data.Proxy (Proxy (..))
 import Data.Vector.Algorithms.Intro qualified as Intro
 import Data.Vector.Unboxed qualified as VU
 import Intro.Inline qualified as Inline

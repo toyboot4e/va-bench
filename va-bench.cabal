@@ -15,6 +15,7 @@ common deps
   default-language: GHC2021
   build-depends:
     , base               ^>=4.19.2.0
+    , bitvec             >=1.0       && <1.2
     , primitive          >=0.6.2.0   && <0.10
     , vector             >=0.13.2.0  && <0.14
     , vector-algorithms  ==0.9.0.3
@@ -26,6 +27,8 @@ library
     Common
     Intro.Inline
     Intro.StToPrim
+    Nub.Inline
+    Nub.Inlineable
 
   hs-source-dirs:  src
 
@@ -51,12 +54,25 @@ benchmark sort-vs-sort-by
     , random
     , va-bench
 
-benchmark inline-effect
+benchmark inline-sort
   import:         warnings
   import:         deps
   ghc-options:    -O2
   type:           exitcode-stdio-1.0
-  main-is:        InlineEffect.hs
+  main-is:        InlineSort.hs
+  hs-source-dirs: bench
+  other-modules:
+  build-depends:
+    , criterion
+    , random
+    , va-bench
+
+benchmark nub
+  import:         warnings
+  import:         deps
+  ghc-options:    -O2
+  type:           exitcode-stdio-1.0
+  main-is:        Nub.hs
   hs-source-dirs: bench
   other-modules:
   build-depends:

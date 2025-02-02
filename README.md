@@ -9,21 +9,25 @@ This repository is for benchmarking the [`vector-algorithms`](https://github.com
 
 ## How to run
 
-### Benchmark 1. `inline-effect`
+Benchmarks can be run with [`just`](https://github.com/casey/just). See [`Justfile`](./Justfile) for the recipes.
 
-This benchmark demonstrates how `{-# INLINE #-}` sort is faster, specific to intro sort:
+## Benchmark results
 
-```sh
-$ cabal bench --enable-benchmarks --benchmark-options='--output bench-result/inline-effect.html' inline-effect
-$ # open `bench-result/inline-effect.html`
-```
+### 1. `inline-sort`
 
-### Benchmark 2. `sort-vs-sort-by`
+The `sort` function in `Intro` module should be marked as `INLINE`, but `INLINEABLE`:
 
-This benchmark demonstrates how `sort` in each module is slow:
+![](./img/inline-sort.png)
 
-```sh
-$ cabal bench --enable-benchmarks --benchmark-options='--output bench-result/sort-vs-sort-by.html' sort-vs-sort-by
-$ # open `b.html`
-```
+### 2. `sort-vs-sort-by`
+
+Other `sort` functions should also be marked as `INLINE`:
+
+![](./img/sort-vs-sort-by.png)
+
+### 3. `nub`
+
+`nub` and `nubBy` should be marked as `INLINE`. `nubByMut` should be atleast marked as `INLINEABLE`:
+
+![](./img/nub.png)
 

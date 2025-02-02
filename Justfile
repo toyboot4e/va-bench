@@ -5,17 +5,21 @@
 help:
     @just -l
 
-# runs the `intro` benchmark
-inline-effect:
-    cabal bench --enable-benchmarks --benchmark-options='--output bench-result/inline-effect.html' inline-effect
+# runs the `inline-intro` benchmark
+inline-sort:
+    cabal bench --enable-benchmarks --benchmark-options='--output bench-result/inline-sort.html' inline-sort
 
-alias il := inline-effect
+alias il := inline-sort
 
 # runs the `sort-by` benchmark
 sort-vs-sort-by:
     cabal bench --enable-benchmarks --benchmark-options='--output bench-result/sort-vs-sort-by.html' sort-vs-sort-by
 
 alias so := sort-vs-sort-by
+
+# runs the `nub` benchmark
+nub:
+    cabal bench --enable-benchmarks --benchmark-options='--output bench-result/nub.html' nub
 
 # builds the library
 build:
