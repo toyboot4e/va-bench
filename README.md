@@ -8,11 +8,21 @@ This repository is for benchmarking the [`vector-algorithms`](https://github.com
 
 ## How to run
 
-- Run `cabal bench --enable-benchmarks --benchmark-options='--output a.html'`
-  - If you have [`just`](https://github.com/casey/just) installed, run with `just bench` or `just be`.
-- Open `a.html`
+### Benchmark 1. `inline-effect`
 
-### How to use a local version of `vector-algorithms`
+This benchmark demonstrates how `{-# INLINE #-}` sort is faster, specific to intro sort:
 
-Modify `cabal.project` to point to your `vector-algorithms`. Or add a function to the library under `src/`.
+```sh
+$ cabal bench --enable-benchmarks --benchmark-options='--output a.html' inline-effect
+$ # open `a.html`
+```
+
+### Benchmark 2. `sort-vs-sort-by`
+
+This benchmark demonstrates how `sort` in each module is slow:
+
+```sh
+$ cabal bench --enable-benchmarks --benchmark-options='--output b.html' sort-vs-sort-by
+$ # open `b.html`
+```
 
