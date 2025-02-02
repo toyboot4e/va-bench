@@ -5,6 +5,7 @@ This repository is for benchmarking the [`vector-algorithms`](https://github.com
 ## Setup
 
 - Install GHC 9.8.4 with LLVM enabled
+- Or, run `direnv allow` if you have Nix Flakes setup
 
 ## How to run
 
@@ -13,8 +14,8 @@ This repository is for benchmarking the [`vector-algorithms`](https://github.com
 This benchmark demonstrates how `{-# INLINE #-}` sort is faster, specific to intro sort:
 
 ```sh
-$ cabal bench --enable-benchmarks --benchmark-options='--output a.html' inline-effect
-$ # open `a.html`
+$ cabal bench --enable-benchmarks --benchmark-options='--output bench-result/inline-effect.html' inline-effect
+$ # open `bench-result/inline-effect.html`
 ```
 
 ### Benchmark 2. `sort-vs-sort-by`
@@ -22,7 +23,7 @@ $ # open `a.html`
 This benchmark demonstrates how `sort` in each module is slow:
 
 ```sh
-$ cabal bench --enable-benchmarks --benchmark-options='--output b.html' sort-vs-sort-by
+$ cabal bench --enable-benchmarks --benchmark-options='--output bench-result/sort-vs-sort-by.html' sort-vs-sort-by
 $ # open `b.html`
 ```
 

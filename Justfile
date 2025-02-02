@@ -7,13 +7,13 @@ help:
 
 # runs the `intro` benchmark
 inline-effect:
-    cabal bench --enable-benchmarks --benchmark-options='--output a.html' inline-effect
+    cabal bench --enable-benchmarks --benchmark-options='--output bench-result/inline-effect.html' inline-effect
 
 alias il := inline-effect
 
 # runs the `sort-by` benchmark
 sort-vs-sort-by:
-    cabal bench --enable-benchmarks --benchmark-options='--output b.html' sort-vs-sort-by
+    cabal bench --enable-benchmarks --benchmark-options='--output bench-result/sort-vs-sort-by.html' sort-vs-sort-by
 
 alias so := sort-vs-sort-by
 
