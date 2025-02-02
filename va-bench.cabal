@@ -17,7 +17,7 @@ common deps
     , base               ^>=4.19.2.0
     , primitive          >=0.6.2.0   && <0.10
     , vector             >=0.13.2.0  && <0.14
-    , vector-algorithms  ^>=0.9.0.3
+    , vector-algorithms  ==0.9.0.3
 
 library
   import:          warnings
