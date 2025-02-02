@@ -87,7 +87,7 @@ The call to `Data.Vector.Algorithms.Intro.sort` seems like not specialized, as w
                                      ~R# GHC.Prim.State# GHC.Prim.RealWorld))
 ```
 
-There's no `Data.Vector.Algorithms.Intro.sortBy` call. It seems like inlined.
+There's no `Data.Vector.Algorithms.Intro.sortBy` call. It seems like inlined (I guess).
 
 ### 2. `sort-vs-sort-by`
 
