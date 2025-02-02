@@ -5,12 +5,17 @@
 help:
     @just -l
 
-# runs the benchmark
-bench:
-    cabal bench --enable-benchmarks --benchmark-options='--output a.html'
+# runs the `intro` benchmark
+inline-effect:
+    cabal bench --enable-benchmarks --benchmark-options='--output a.html' inline-effect
 
-[private]
-alias be := bench
+alias il := inline-effect
+
+# runs the `sort-by` benchmark
+sort-vs-sort-by:
+    cabal bench --enable-benchmarks --benchmark-options='--output b.html' sort-vs-sort-by
+
+alias so := sort-vs-sort-by
 
 # builds the library
 build:

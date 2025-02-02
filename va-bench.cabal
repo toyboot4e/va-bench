@@ -15,14 +15,19 @@ common deps
   default-language: GHC2021
   build-depends:
     , base               ^>=4.19.2.0
-    , vector             ^>=0.13.2.0
+    , primitive          >=0.6.2.0   && <0.10
+    , vector             >=0.13.2.0  && <0.14
     , vector-algorithms  ^>=0.9.0.3
 
 library
-  import:           warnings
-  import:           deps
-  exposed-modules:  MyLib
-  hs-source-dirs:   src
+  import:          warnings
+  import:          deps
+  exposed-modules:
+    Common
+    Intro.Inline
+    Intro.StToPrim
+
+  hs-source-dirs:  src
 
 test-suite va-bench-test
   import:           warnings
@@ -33,12 +38,25 @@ test-suite va-bench-test
   main-is:          Main.hs
   build-depends:    va-bench
 
-benchmark b
+benchmark sort-vs-sort-by
   import:         warnings
   import:         deps
   ghc-options:    -O2
   type:           exitcode-stdio-1.0
-  main-is:        Main.hs
+  main-is:        SortVsSortBy.hs
+  hs-source-dirs: bench
+  other-modules:
+  build-depends:
+    , criterion
+    , random
+    , va-bench
+
+benchmark inline-effect
+  import:         warnings
+  import:         deps
+  ghc-options:    -O2
+  type:           exitcode-stdio-1.0
+  main-is:        InlineEffect.hs
   hs-source-dirs: bench
   other-modules:
   build-depends:
